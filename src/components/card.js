@@ -55,13 +55,11 @@ const Card = (article) => {
 //
 import axios from 'axios';
 
-const cardsContainer = document.querySelector('.cards-container');
-
 const cardAppender = (selector) => {
+  const cardsContainer = document.querySelector(selector);
   axios.get(`http://localhost:5000/api/articles`)
   .then(res => {
     const topics = res.data.articles;
-    console.log(topics);
     const keys = Object.keys(topics);
     keys.forEach(key => {
       const topic = topics[key];
